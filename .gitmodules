@@ -1,0 +1,3 @@
+[submodule "Tranquilino/Frontend-Task2/valoAPI"]
+	path = Tranquilino/Frontend-Task2/valoAPI
+	url = https://github.com/UlyssesTranquilino/Valorant-API-TS.git
