@@ -6,10 +6,10 @@ import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors';
 import router from './routes/index'
-require('dotenv').config();
-
+import * as dotenv from 'dotenv';
 
 const app = express();
+dotenv.config();
 
 app.use(cors({
     credentials: true,
@@ -26,10 +26,10 @@ server.listen(8080, () => {
     console.log("Server running on http://localhost:8080/")
 })
 
-const MONGO_URL = "mongodb+srv://adreforsado:EpPi5uGqwSiJpIKr@adnu.cpcx6.mongodb.net/PILLARS?retryWrites=true&w=majority&appName=ADNU"
+const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.Promise = Promise;
-mongoose.connect(MONGO_URL)
+mongoose.connect(MONGO_URL);
 mongoose.connection.on('error', (error: Error) => console.log(error));
 
 app.use('/', router());
