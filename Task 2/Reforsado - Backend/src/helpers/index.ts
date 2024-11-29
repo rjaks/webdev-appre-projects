@@ -1,8 +1,8 @@
 import crypto from 'crypto';
 
-const SECRET = 'PILLARS-REST-API'
+const SECRET = 'PILLARS-API'
 
 export const random = () => crypto.randomBytes(128).toString('base64');
 export const authentication = (salt: string, password: string) => {
-    return crypto.createHmac('sha256', [salt, password].join('/')).update(SECRET).toString();
-}
+    return crypto.createHmac('sha256', [salt, password].join('/')).update(SECRET).digest('hex');
+};
